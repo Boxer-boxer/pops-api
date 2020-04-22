@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using ApiTest1.Models;
 using ApiTest1.Services;
@@ -23,12 +24,12 @@ namespace ApiTest1.Controllers
         }
 
         // GET: api/Event
-        [HttpGet]
+        [HttpPost("now")]
         [EnableCors("Default")]
-
-        public ActionResult<List<Event>> Get()
+  
+        public ActionResult<List<Event>> Post([FromBody] EventRequest Request)
         {
-            return _eventService.Get();
+            return _eventService.Get(Request.date);
         }
 
         // GET: api/Event/5

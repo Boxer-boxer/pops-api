@@ -18,7 +18,10 @@ namespace ApiTest1.Services
 
             _event = database.GetCollection<Event>(settings.EventsCollectionName);
         }
-        public List<Event> Get() => _event.Find(ev => true).ToList();
+        public List<Event> Get(DateTime date)
+        {
+            return _event.Find(ev => ev.EndHour > date).ToList();
+        }
 
         public Event Get(string id) =>
             _event.Find(e => e.Id == id).FirstOrDefault();

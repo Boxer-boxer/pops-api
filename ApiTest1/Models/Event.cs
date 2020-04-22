@@ -23,8 +23,8 @@ namespace ApiTest1.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
         public DateTime EndHour { get; set; }
-        public string Latitude { get; set; }
-        public string Longitude { get; set; }
+        public string Lat { get; set; }
+        public string Lng { get; set; }
         public string UserId { get; set; }
     }
 }
